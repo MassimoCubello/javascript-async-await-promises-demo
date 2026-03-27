@@ -11,20 +11,29 @@
 
     <script>
 
+    console.log("1. Define API URL")
     let url = "https://pokeapi.co/api/v2/pokemon";
 
+    console.log("2. Define our async function.")
     async function getPokemon()
     {
 
+        console.log("4. Fetch Pokemon data")
         let fetchResponse = await fetch(url);
         console.log(fetchResponse);
 
+        console.log("6. Convert Pokemon data to JSON")
         let data = await fetchResponse.json();
+
+        console.log("7. Output data")
         console.log(data);
 
     }
 
+    console.log("3. Execute our async function")
     getPokemon();
+
+    console.log("5. Script ends.")
 
     </script>
     
