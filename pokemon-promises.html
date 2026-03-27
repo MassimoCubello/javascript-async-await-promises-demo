@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon List - Promises</title>
+</head>
+<body>
+
+    <h1>Pokemon List</h1>
+
+    <script>
+
+        /*
+        let fetchPromise = fetch(url);
+        console.log(fetchPromise);
+
+        fetchPromise.then((fetchResponse) => {
+
+            console.log(fetchResponse);
+            let jsonPromise = fetchResponse.json();
+            console.log(jsonPromise);
+
+            jsonPromise.then((data) => {
+
+                console.log(data);
+
+            });
+
+        });
+        */
+
+        console.log("1. Define API URL");
+        let url = "https://pokeapi.co/api/v2/pokemon";
+        
+        console.log("2. Initiate a Fetch");
+        let fetchPromise = fetch(url)
+            .then((response) => {
+                console.log("4. Receive response and initiate JSON");
+                return response.json();
+            })
+            .then((data) => {
+                console.log("5. Receive JSON");
+                console.log(data);
+            });
+
+            console.log("3. Script ends");
+
+    </script>
+    
+</body>
+</html>
