@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon List</title>
+</head>
+<body>
+
+    <h1>Pokemon List</h1>
+
+    <ul id="pokemon"></ul>
+
+    <script>
+
+        let url = "https://pokeapi.co/api/v2/pokemon";
+        let pokemon = document.getElementById("pokemon");
+        
+        fetch(url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((listData) => {
+
+                for(let key in listData.results) {
+
+                    fetch(url + "/" + listData.results[key].name)
+                        .then((response) => {
+                            return response.json();
+                        })
+                        .then((pokemonData) => {
+                            pokemon.innerHTML += "<li>" + 
+                                listData.results[key].name + 
+                                "<br>" +
+                                "<img src='" + pokemonData.sprites.front_default + "'>" +
+                                "<img src='" + pokemonData.sprites.back_default + "'>" +
+                                "</li>";
+                        });
+
+                }
+
+            });
+
+        console.log("3. Script ends");
+
+    </script>
+    
+</body>
+</html>
