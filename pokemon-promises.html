@@ -9,6 +9,9 @@
 
     <h1>Pokemon List</h1>
 
+    <p id="output" </p>
+
+
     <script>
 
         /*
@@ -42,10 +45,13 @@
             .then((data) => {
                 console.log("5. Receive JSON");
                 console.log(data);
+
+                document.getElementById("output").innerHTML = JSON.stringify(data, null, 2)
+
             });
 
             console.log("3. Script ends");
-
+            
     </script>
     
 </body>
